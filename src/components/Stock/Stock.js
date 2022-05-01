@@ -1,16 +1,9 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import "./Manage.css";
 
-const Manage = ({ manage }) => {
+const Stock = ({ manage }) => {
   const { _id, title, description, price, quantity, supplyerName, img } =
     manage;
-  const navigate = useNavigate();
-
-  const navigateToUpdate = (id) => {
-    navigate(`/updateitem/${id}`);
-  };
   return (
     <div>
       <Card className="mx-auto m-5 card" style={{ width: "18rem" }}>
@@ -26,13 +19,11 @@ const Manage = ({ manage }) => {
           <Card.Text className="text">quantity: {quantity}</Card.Text>
           <Card.Text className="text">Supplyer name: {supplyerName}</Card.Text>
           <Card.Text className="text">Supplyer Id.: {_id}</Card.Text>
-          <Button onClick={() => navigateToUpdate(_id)} variant="primary">
-            Update Item📝
-          </Button>
+          <Button variant="primary">Delete Item 🗑</Button>
         </Card.Body>
       </Card>
     </div>
   );
 };
 
-export default Manage;
+export default Stock;

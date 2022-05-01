@@ -32,36 +32,46 @@ const Header = () => {
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse
-            id="basic-navbar-nav"
-          >
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <LinkContainer to="/">
+              <LinkContainer  to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/manage">
-                <Nav.Link>Manage Items</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/additems">
-                <Nav.Link>Add Items</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/myitems">
-                <Nav.Link>My Items</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/blog">
+
+              <LinkContainer  to="/blog">
                 <Nav.Link>Blog</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/about">
+              <LinkContainer  to="/about">
                 <Nav.Link>About Me</Nav.Link>
               </LinkContainer>
 
               {user ? (
-                <div className="d-flex align-items-center justify-content-center">
-                  <p className="mb-0 p-2">👨‍💼{user?.email?user?.email:user?.displayName}</p>
-                  <button className="rounded btn btn-primary d-flex justify-content-center align-items-center" onClick={handleSignOut}><i className="fa-solid fa-right-from-bracket" style={{transform: "rotateY(180deg)"}}></i>
-                    <span className="mx-1">Sign out</span>
-                  </button>
-                </div>
+                <>
+                  <LinkContainer to="/manage">
+                    <Nav.Link>Manage Items</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer  to="/additems">
+                    <Nav.Link>Add Items</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer  to="/myitems">
+                    <Nav.Link>My Items</Nav.Link>
+                  </LinkContainer>
+                  <div className="d-flex align-items-center justify-content-center">
+                    <p className="mb-0 p-2">
+                      👨‍💼{user?.email ? user?.email : user?.displayName}
+                    </p>
+                    <button
+                      className="rounded btn btn-primary d-flex justify-content-center align-items-center"
+                      onClick={handleSignOut}
+                    >
+                      <i
+                        className="fa-solid fa-right-from-bracket"
+                        style={{ transform: "rotateY(180deg)" }}
+                      ></i>
+                      <span className="mx-1">Sign out</span>
+                    </button>
+                  </div>
+                </>
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>Login</Nav.Link>

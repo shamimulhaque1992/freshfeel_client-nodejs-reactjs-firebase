@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Button, Card, Form } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 const UpdateItem = () => {
@@ -36,8 +36,19 @@ const UpdateItem = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("success", data);
+          console.log("success", updatedInfo);
+          console.log(product);
+          /* const remaining = product.filter(product =>product._id !== updateId);
+          setProduct(remaining) */
+          /* setProduct(
+              product.map(product => {
+                  return {...product, quantity: edititem}
+              })
+          )
+
+          setEdititem(product._id); */
           alert("Informatin updated successfully");
+          console.log(product);
           event.target.reset();
         });
     }
@@ -45,6 +56,23 @@ const UpdateItem = () => {
   return (
     <div className="">
       <h1 className="text-center pt-4 mt-4 text-primary">{product.title}</h1>
+      <Card className="mx-auto m-5 card" style={{ width: "18rem" }}>
+        <Card.Img
+          className="border rounded mx-auto mt-2 p-1 card-img"
+          variant="top"
+          src={product.img}
+        />
+        <Card.Body>
+          <Card.Title className="title">{product.title}</Card.Title>
+          <Card.Text className="text">{product.description}</Card.Text>
+          <Card.Text className="text">Price: {product.price}</Card.Text>
+          <Card.Text className="text">quantity: {product.quantity}</Card.Text>
+          <Card.Text className="text">
+            Supplyer name: {product.supplyerName}
+          </Card.Text>
+          <Card.Text className="text">Supplyer Id.: {product._id}</Card.Text>
+        </Card.Body>
+      </Card>
       <div className="form-container mx-auto mt-5 mb-5">
         <Form
           onSubmit={handleUpdateDeleveredQuentity}
@@ -76,7 +104,13 @@ const UpdateItem = () => {
 
           <ToastContainer />
         </Form>
+        
       </div>
+      <div className="text-center">
+          <Link to="/mnagestock">
+            <Button>Manage Stock</Button>
+          </Link>
+        </div>
     </div>
   );
 };
