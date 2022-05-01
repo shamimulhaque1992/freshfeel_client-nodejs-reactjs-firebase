@@ -1,0 +1,29 @@
+.about img {
+  background-image: url("https://img.freepik.com/free-vector/abstact-hexagon-background-memphis-style_1017-31955.jpg?t=st=1650279424~exp=1650280024~hmac=8d55fc599351b90fef4ddd93e2fecadf1edb312aeef39be905c241c7047150b1&w=740");
+  width: 600px;
+  border-radius: 5px;
+}
+
+.text-centers{
+  background-color: rgb(138, 138, 138);
+  box-shadow: 12px 12px 2px 1px rgba(117, 117, 185, 0.2);
+  border-radius: 4px;
+  color: #fff;
+
+}
+
+@media only screen and (max-width: 576px) {
+  .about img {
+    width: 200px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+  .about img {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+  .about img {
+    width: 400px;
+  }
+}

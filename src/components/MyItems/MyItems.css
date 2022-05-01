@@ -1,0 +1,33 @@
+@media only screen and (max-width: 576px) {
+  .card{
+      width: 85%!important;
+  }
+  .title{
+      font-size: 20px!important;
+  }
+  .text{
+      font-size: 15px!important;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width:992px) {
+  .card{
+      width: 85%!important;
+  }
+  .title{
+      font-size: 20px!important;
+  }
+  .text{
+      font-size: 15px!important;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width:1400px) {
+  .card{
+      width: 80%!important;
+  }
+  .title{
+      font-size: 20px!important;
+  }
+  .text{
+      font-size: 15px!important;
+  }
+}
