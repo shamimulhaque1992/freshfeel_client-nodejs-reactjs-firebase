@@ -1,27 +1,44 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
+import useManage from "../../hooks/useManage";
+import "./Stock.css";
 
-const Stock = ({ manage }) => {
-  const { _id, title, description, price, quantity, supplyerName, img } =
-    manage;
+const Stock = () => {
+  const [manages] = useManage();
+  console.log(manages[0]);
+
   return (
-    <div>
-      <Card className="mx-auto m-5 card" style={{ width: "18rem" }}>
-        <Card.Img
-          className="border rounded mx-auto mt-2 p-1 card-img"
-          variant="top"
-          src={img}
-        />
-        <Card.Body>
-          <Card.Title className="title">{title}</Card.Title>
-          <Card.Text className="text">{description}</Card.Text>
-          <Card.Text className="text">Price: {price}</Card.Text>
-          <Card.Text className="text">quantity: {quantity}</Card.Text>
-          <Card.Text className="text">Supplyer name: {supplyerName}</Card.Text>
-          <Card.Text className="text">Supplyer Id.: {_id}</Card.Text>
-          <Button variant="primary">Delete Item 🗑</Button>
-        </Card.Body>
-      </Card>
+    <div className="table-container">
+      <Table striped bordered hover size="" className="text-center ">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Supplyer Name</th>
+            <th>Image</th>
+            <th>Pirce</th>
+            <th>Quantity</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {manages.map((manage) => (
+            <tr key={manage._id}>
+              <td>{manage._id}</td>
+              <td>{manage.title}</td>
+              <td>{manage.supplyerName}</td>
+              <td>
+                <img src={manage.img} alt="" />
+              </td>
+              <td>{manage.price}</td>
+              <td>{manage.quantity}</td>
+              <td>
+                <Button>Delete</Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };
