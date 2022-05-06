@@ -1,9 +1,18 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import auth from "../../firebase.init";
 import "./AddItems.css";
 
 const AddItems = () => {
-  const { register, handleSubmit, reset, formState: { errors }  } = useForm();
+  const [user] = useAuthState(auth);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
   const onSubmit = (data, e) => {
     e.target.reset();
     const url = `http://localhost:5000/product`;
@@ -16,6 +25,10 @@ const AddItems = () => {
       .then((info) => {
         console.log(info);
       });
+  };
+
+  const handleEmailChange = (event) => {
+    console.log(event.target.value);
   };
 
   return (
@@ -52,6 +65,13 @@ const AddItems = () => {
             className="mb-4"
             placeholder="Enter Supplyers Name"
             {...register("supplyerName", { required: true, maxLength: 200 })}
+          />
+          <input
+            className="mb-4"
+            name="email"
+            onChange={handleEmailChange}
+            value={user?.email ? user?.email : user?.displayName}
+            {...register("supplyerEmail", { required: true, maxLength: 200 })}
           />
           <input
             className="mb-4"
