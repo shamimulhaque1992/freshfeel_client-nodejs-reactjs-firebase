@@ -49,7 +49,7 @@ const Stock = () => {
               <td className="hide-column">
                 <img src={manage.img} alt="" />
               </td>
-              <td className="hide-column">{manage.price}</td>
+              <td className="hide-column">৳ {manage.price} BDT</td>
               <td>{manage.quantity}</td>
               <td>
                 <Button className="d-flex align-items-center" onClick={()=>handleDeleteProduct(manage._id)}> <span>Delete</span> <i className="ms-1 fa-solid fa-trash"></i></Button>

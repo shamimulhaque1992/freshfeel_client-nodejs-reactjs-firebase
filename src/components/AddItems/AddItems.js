@@ -1,96 +1,67 @@
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { useAuthState } from "react-firebase-hooks/auth";
-
-import { Link } from "react-router-dom";
-import auth from "../../firebase.init";
+import React from "react";
+import { useForm } from "react-hook-form";
 import "./AddItems.css";
 
 const AddItems = () => {
-  const [user] = useAuthState(auth);
-  const [setName] = useState("");
-  const [setAddress] = useState("");
-  const [setPhone] = useState("");
-  const [error] = useState("");
-  // const navigate = useNavigate();
-  const handleNameBlur = (event) => {
-    setName(event.target.value);
+  const { register, handleSubmit, reset, formState: { errors }  } = useForm();
+  const onSubmit = (data, e) => {
+    e.target.reset();
+    const url = `http://localhost:5000/product`;
+    fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((info) => {
+        console.log(info);
+      });
   };
-
-  const handleAddressBlur = (event) => {
-    setAddress(event.target.value);
-  };
-
-  const handlePhoneBlur = (event) => {
-    setPhone(event.target.value);
-  };
-
-  const handleCreateUser = (event) => {
-    event.preventDefault();
-  };
-
 
   return (
     <div className="">
-      <h1 className="text-center pt-5 text-primary">Conferm Your Order</h1>
+      <h1 className="text-center pt-5 text-primary">Add a New Porduct!</h1>
       <div className="form-container mt-5 mb-5">
-        <Form onSubmit={handleCreateUser}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              onBlur={handleNameBlur}
-              type="text"
-              placeholder="Your Name"
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-            
-              value={user?.email?user?.email: " "}
-              readOnly
-              type="email"
-              placeholder="Enter email"
-              required
-              name="email"
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <div className="position-relative">
-              <Form.Control
-                onBlur={handleAddressBlur}
-                placeholder="Address"
-                name="address"
-                required
-              />
-            </div>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicConfermPassword">
-            <Form.Label>Phone Number</Form.Label>
-            <div className="position-relative">
-              <Form.Control
-                onBlur={handlePhoneBlur}
-                placeholder="Phone Number"
-                name="confermPassword"
-                required
-              />
-            </div>
-            <p style={{ color: "red" }}>{error}</p>
-          </Form.Group>
-          <p style={{ color: "red" }}>{error}</p>
-          <Link to="/">
-              
-            <Button className="mb-3" variant="primary" type="submit">
-              Conferm
-            </Button>
-          </Link>
-        </Form>
+        <form
+          className="d-flex flex-column w-75"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <input
+            className="mb-4 mt-4"
+            placeholder="Enter The Name of The Product"
+            {...register("title", { required: true, maxLength: 200 })}
+          />
+          <textarea
+            className="mb-4"
+            placeholder="Enter Short Description"
+            {...register("description")}
+          />
+          <input
+            className="mb-4"
+            placeholder="Enter Unit Price"
+            type="number"
+            {...register("price")}
+          />
+          <input
+            className="mb-4"
+            placeholder="Enter Quantity"
+            type="number"
+            {...register("quantity")}
+          />
+          <input
+            className="mb-4"
+            placeholder="Enter Supplyers Name"
+            {...register("supplyerName", { required: true, maxLength: 200 })}
+          />
+          <input
+            className="mb-4"
+            placeholder="Enter Image URL"
+            type="text"
+            {...register("img", { required: true, maxLength: 1000 })}
+          />
+          {errors.exampleRequired && <span>This field is required</span>}
+          <input className="mb-4" value="Add To Database" type="submit" />
+        </form>
       </div>
     </div>
   );
