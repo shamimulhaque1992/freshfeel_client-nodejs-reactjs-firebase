@@ -9,7 +9,6 @@ const AddItems = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,9 +26,7 @@ const AddItems = () => {
       });
   };
 
-  const handleEmailChange = (event) => {
-    console.log(event.target.value);
-  };
+  
 
   return (
     <div className="">
@@ -69,7 +66,6 @@ const AddItems = () => {
           <input
             className="mb-4"
             name="email"
-            onChange={handleEmailChange}
             value={user?.email ? user?.email : user?.displayName}
             {...register("supplyerEmail", { required: true, maxLength: 200 })}
           />

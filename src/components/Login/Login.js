@@ -1,10 +1,12 @@
 // All imports
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
-  useSendPasswordResetEmail, useSignInWithEmailAndPassword,
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
   useSignInWithFacebook,
-  useSignInWithGoogle
+  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -33,9 +35,9 @@ const Login = () => {
     const emailRegex = /\S+@\S+\.\S+/.test(event.target.value);
     if (emailRegex) {
       setEmail(event.target.value);
-      setErrors({...errors, email:""});
+      setErrors({ ...errors, email: "" });
     } else {
-      setErrors({...errors, email:"❌ Invalid Email"});
+      setErrors({ ...errors, email: "❌ Invalid Email" });
       setEmail("");
     }
   };
@@ -47,24 +49,25 @@ const Login = () => {
       );
     if (passRegex) {
       setPassword(event.target.value);
-      setErrors({...errors, password:""});
+      setErrors({ ...errors, password: "" });
     } else {
-      setErrors({...errors, password:"❌ Invalid Password"});
+      setErrors({ ...errors, password: "❌ Invalid Password" });
       setPassword("");
     }
   };
 
+  const handleUserSignIn = async(event) => {
+    event.preventDefault();
+    await signInWithEmailAndPassword(email, password);
+    const {data} = await axios.post('http://localhost:5000/login', {email})
+    localStorage.setItem('token', data.token);
+    navigate(from, { replace: true });
+  };
   useEffect(() => {
     if (user) {
-      navigate(from, { replace: true });
+      // navigate(from, { replace: true });
     }
   });
-
-  const handleUserSignIn = (event) => {
-    event.preventDefault();
-    signInWithEmailAndPassword(email, password);
-  };
-
   // Signin with google functionality
   const [signInWithGoogle, googleuser, googleloading, googleerror] =
     useSignInWithGoogle(auth);
@@ -167,7 +170,12 @@ const Login = () => {
           <p style={{ color: "red" }}>{error?.message}</p>
           {loading && <p>Loading...</p>}
 
-          <Button className="mb-3 d-flex justify-content-center align-items-center" variant="primary" type="submit"><i className="fa-solid fa-right-from-bracket"></i>
+          <Button
+            className="mb-3 d-flex justify-content-center align-items-center"
+            variant="primary"
+            type="submit"
+          >
+            <i className="fa-solid fa-right-from-bracket"></i>
             <span className="mx-1">Login</span>
           </Button>
           <div className="google-siginn d-flex">
@@ -182,7 +190,8 @@ const Login = () => {
               className="mb-3 d-flex justify-content-around align-items-center"
               variant="primary"
               type="submit"
-            ><i className="fa-brands fa-google"></i>
+            >
+              <i className="fa-brands fa-google"></i>
               <span>Login With Google.</span>
             </Button>
             <br />
@@ -191,7 +200,8 @@ const Login = () => {
               className="mb-3 d-flex justify-content-around align-items-center"
               variant="primary"
               type="submit"
-            ><i className="fa-brands fa-facebook-f"></i>
+            >
+              <i className="fa-brands fa-facebook-f"></i>
               <span>Login With Facebook.</span>
             </Button>
           </div>

@@ -23,16 +23,10 @@ const Home = () => {
             <Manage key={manage._id} manage={manage} />
           ))}
         </div>
-        <div className="text-center">
+        <div className="text-center mb-5">
           <Link to="/mnagestock">
             <Button>Manage Stock</Button>
           </Link>
-        </div>
-        <h1 className="text-center p-5 text-primary">My Happy Customers</h1>
-        <div className="services-container">
-          {myitems.slice(0, 3).map((myitem) => (
-            <MyItems key={myitem.id} myitem={myitem} />
-          ))}
         </div>
       </div>
     </div>

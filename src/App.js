@@ -15,14 +15,20 @@ import Register from "./components/Register/Register";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
 
-
 function App() {
   return (
     <div className="App">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/manage" element={<ManageAll></ManageAll>}></Route>
+        <Route
+          path="/manage"
+          element={
+            <RequireAuth>
+              <ManageAll></ManageAll>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/updateitem/:updateId"
           element={
@@ -39,15 +45,19 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route
-          path="/myitems"
-          element={<AllMyItems></AllMyItems>}
-        ></Route>
+        <Route path="/myitems" element={<AllMyItems></AllMyItems>}></Route>
         <Route path="/blog" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/mnagestock" element={<ManageStock></ManageStock>}></Route>
+        <Route
+          path="/mnagestock"
+          element={
+            <RequireAuth>
+              <ManageStock></ManageStock>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer></Footer>
