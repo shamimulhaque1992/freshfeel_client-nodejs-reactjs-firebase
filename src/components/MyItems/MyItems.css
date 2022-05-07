@@ -8,5 +8,8 @@
     .hide-column {
         display: none;
     }
+    .userName{
+      font-size:15px;
+    }
 }
 

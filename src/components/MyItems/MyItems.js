@@ -1,32 +1,44 @@
 import axios from "axios";
+import { signOut } from "firebase/auth";
 import React, { useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import useManage from "../../hooks/useManage";
 import "./MyItems.css";
 
 const MyItems = ({ myitem }) => {
   const [user] = useAuthState(auth);
-  console.log(user);
-  const [userItem, setUserItem] = useManage([]);
+  const navigate = useNavigate();
+  const [userItems, setUserItem] = useManage([]);
   useEffect(() => {
     const getAddItems = async () => {
-      const email = user?.email;
+      const email = user.email;
       const url = `http://localhost:5000/addedproduct?email=${email}`;
-      const { data } = await axios.get(url, {
-        headers:{
-          authorization: `Bearer ${localStorage.getItem('token')}`
-        }
+      try{
+        const { data } = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       });
       setUserItem(data);
+      }
+      catch(error){
+        console.log(error.message);
+        if(error.response.status === 401 || error.response.status === 403){
+          signOut(auth)
+          navigate('/login');
+        }
+      }
     };
     getAddItems();
-  }, [user,setUserItem]);
+  }, [user, setUserItem, navigate]);
+
+  //Deleting the product by id
   const handleDeleteProduct = (id) => {
     const conferm = window.confirm("Are you sure you want to delete?");
     if (conferm) {
-      console.log("deleting user with id", id);
       const url = `http://localhost:5000/addedproduct/${id}`;
       fetch(url, {
         method: "DELETE",
@@ -34,8 +46,7 @@ const MyItems = ({ myitem }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            console.log("Delete");
-            const remaining = userItem.filter((user) => user._id !== id);
+            const remaining = userItems.filter((user) => user._id !== id);
             setUserItem(remaining);
           }
         });
@@ -43,8 +54,8 @@ const MyItems = ({ myitem }) => {
   };
   return (
     <div className="table-container">
-      <h1>All Items added by{user?.email?user?.email : user?.displayName}</h1>
-      <Table striped bordered hover className="text-center">
+      
+      <Table striped bordered hover className="text-center mb-5 mx-auto" style={{width: '90%'}}>
         <thead>
           <tr>
             <th className="hide-column">Id</th>
@@ -57,20 +68,20 @@ const MyItems = ({ myitem }) => {
           </tr>
         </thead>
         <tbody>
-          {userItem.map((manage) => (
-            <tr key={manage._id}>
-              <td className="hide-column">{manage._id}</td>
-              <td>{manage.title}</td>
-              <td className="hide-column">{manage.supplyerName}</td>
+          {userItems.map((useritem) => (
+            <tr key={useritem._id}>
+              <td className="hide-column">{useritem._id}</td>
+              <td>{useritem.title}</td>
+              <td className="hide-column">{useritem.supplyerName}</td>
               <td className="hide-column">
-                <img src={manage.img} alt="" />
+                <img src={useritem.img} alt="" />
               </td>
-              <td className="hide-column">৳ {manage.price} BDT</td>
-              <td>{manage.quantity}</td>
+              <td className="hide-column">৳ {useritem.price} BDT</td>
+              <td>{useritem.quantity}</td>
               <td>
                 <Button
-                  className="d-flex align-items-center"
-                  onClick={() => handleDeleteProduct(manage._id)}
+                  className="d-flex align-items-center mx-auto"
+                  onClick={() => handleDeleteProduct(useritem._id)}
                 >
                   {" "}
                   <span>Delete</span> <i className="ms-1 fa-solid fa-trash"></i>

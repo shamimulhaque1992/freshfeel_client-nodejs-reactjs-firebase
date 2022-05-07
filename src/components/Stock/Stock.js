@@ -28,7 +28,7 @@ const Stock = () => {
 
   return (
     <div className="table-container">
-      <Table striped bordered hover className="text-center ">
+      <Table striped bordered hover className="text-center mx-auto"style={{width: '90%'}}>
         <thead>
           <tr>
             <th className="hide-column">Id</th>
@@ -52,7 +52,7 @@ const Stock = () => {
               <td className="hide-column">৳ {manage.price} BDT</td>
               <td>{manage.quantity}</td>
               <td>
-                <Button className="d-flex align-items-center" onClick={()=>handleDeleteProduct(manage._id)}> <span>Delete</span> <i className="ms-1 fa-solid fa-trash"></i></Button>
+                <Button className="d-flex align-items-center mx-auto" onClick={()=>handleDeleteProduct(manage._id)}> <span>Delete</span> <i className="ms-1 fa-solid fa-trash"></i></Button>
               </td>
             </tr>
           ))}
