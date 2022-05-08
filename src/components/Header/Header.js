@@ -56,7 +56,7 @@ const Header = () => {
                   <LinkContainer  to="/myitems">
                     <Nav.Link>My Items</Nav.Link>
                   </LinkContainer>
-                  <div className="d-flex align-items-center justify-content-center">
+                  <div className="d-flex align-items-center justify-content-center flex-sm-column flex-md-row usersigninfo">
                     <p className="mb-0 p-2">
                       👨‍💼{user?.email ? user?.email : user?.displayName}
                     </p>

@@ -31,8 +31,8 @@ const Carousels = () => {
           />
 
           <Carousel.Caption className="carosel-text mb-5 rounded">
-            <h3 className="font font-title">Natural Beauty!</h3>
-            <p className="font font-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3 className="font font-title">Dior</h3>
+            <p className="font font-description" title="Fashion house Dior, headquartered in France, was founded in 1946. The fashion house has a wide array of products in its repertoire. Items such as clothing, fashion accessories, beauty products, as well as jewelry and watches are some of the articles they provide customers with. One of their signature scents, J’adore, has been one of the best selling perfumes on the market since 1999.">Fashion house Dior, headquartered in France, was founded in 1946.</p>
           </Carousel.Caption>
         </Carousel.Item>
 

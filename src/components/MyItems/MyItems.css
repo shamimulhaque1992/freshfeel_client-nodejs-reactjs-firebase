@@ -4,33 +4,8 @@
   border-radius: 5px;
 }
 
-
-
-@media only screen and (max-width: 320px) and (max-width: 576px) {
-  .hide-column {
-    display: none;
-  }
-  .userName {
-    font-size: 15px;
-  }
-  .flexit-column {
-    flex-direction: column !important;
-  }
-  .hide-md-column {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 992px) {
-  .hide-md-column {
-    display: none;
-  }
-  .userName {
-    font-size: 15px;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1440) {
-  .flexit-column {
-    flex-direction: column !important;
-  }
+@media (max-width: 768px) {
+    .hide-column {
+        display: none;
+    }
 }
