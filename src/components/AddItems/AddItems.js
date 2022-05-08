@@ -35,7 +35,7 @@ const AddItems = () => {
 
   return (
     <div className="">
-      <h1 className="text-center pt-5 text-primary">Add a New Porduct!</h1>
+      <h1 className="text-center pt-5 text-primary">Add a New Porduct!!</h1>
       <div className="form-container mt-5 mb-5">
         <form
           className="d-flex flex-column w-75"
