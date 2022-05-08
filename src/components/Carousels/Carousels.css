@@ -1,24 +1,27 @@
 .carosel-text {
-  background-color: rgba(255, 255, 255, 0.445);
-  width: 40%;
+  background-color: rgba(202, 19, 19, 0.445);
   margin: 0 auto;
+  height: 200px !important;
 }
 .font {
   font-weight: bold;
-  color: rgb(49, 49, 48);
+  color: rgb(205, 195, 195)!important;
 }
 .carousels-container img {
-  width: 50% !important;
+  width: 50%;
+  height: 500px;
   margin: 0 auto !important;
 }
 .carousels-container {
-  background-color: rgba(13, 255, 0, 0.127);
+  background-color: rgba(188, 188, 188, 0.127);
 }
 .carousels-container span{
   background-color: rgb(68, 68, 68);
   border-radius: 5px;
   padding: 10px;
 }
+
+
 
 
 /* Responsive for carousel */
@@ -38,7 +41,7 @@
     color: rgb(49, 49, 48);
   }
   .carousels-container img {
-    width: 95% !important;
+    width: 75% !important;
     margin: 0 auto !important;
   }
 }
@@ -79,4 +82,12 @@
     width: 60% !important;
     margin: 0 auto !important;
   }
+}
+@media only screen and (min-width: 1400px) and (max-width: 3760px) {
+  .carosel-text {
+    width: 45%;
+    height: 130px;
+    margin: 0 auto;
+  }
+  
 }

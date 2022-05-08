@@ -5,83 +5,67 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div>
-      <footer id="footer-2-cols" className="site-footer">
-        <div id="footer-container">
-          <div id="footer-grid">
-            <div id="left-footer-section" className="footer-section">
-              <div id="footer-search">
-                <form action="">
-                  <input type="search" placeholder="Photographer" />
-                  <button type="submit">Search</button>
-                </form>
-              </div>
-              <div className="footer-information">
-                <p>
-                  <img src="https://img.icons8.com/ios-filled/12/999999/marker.png" alt=""/>
-                  Kallanpur, Dhaka, Bangladesh.
-                </p>
-                <p>
-                  <img src="https://img.icons8.com/ios-filled/12/999999/phone.png" alt=""/>
-                  01779312970
-                </p>
-                <p>
-                  <img src="https://img.icons8.com/ios-filled/12/999999/mail.png" alt=""/>
-                  khandoker15-1992@diu.edu.bd
-                </p>
-                <p>
-                  <img src="https://img.icons8.com/ios-filled/12/999999/clock.png" alt=""/>
-                  8:00 AM – 8:00 PM
-                </p>
-              </div>
-            </div>
-            <div id="right-footer-section" className="footer-section">
-              <div className="footer-links">
+      <div className="footer-dark">
+        <footer>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-6 col-md-3 item">
+                <h3>Services</h3>
                 <ul>
-                  <li role="menuitem">
-                    <Link to="/">Home</Link>
+                  <li>
+                    <Link to="/">Wholesale</Link>
                   </li>
-                  <li role="menuitem">
-                    <Link to="/service">Service</Link>
+                  <li>
+                    <Link to="/">Production</Link>
                   </li>
-                  <li role="menuitem">
-                    <Link to="/about">About Me</Link>
+                  <li>
+                    <Link to="/">Export</Link>
                   </li>
-                  <li role="menuitem">
-                    <Link to="/blog">
-                      Blogs
-                    </Link>
-                  </li>
-                  <li role="menuitem">
-                    <Link to="/">Message Us</Link>
-                  </li>
-                  <li role="menuitem">
-                    <Link to="/">Leave a Feedback</Link>
+                  <li>
+                    <Link to="/">Import</Link>
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-          <div id="copyright-information">
-            <div id="footer-logo-section">
-              <div id="footer-logo">
-                <img
-                  src="https://raw.githubusercontent.com/taviskaron/2-3-4-column-footers/main/img/logo.png"
-                  alt=""
-                />
+              <div className="col-sm-6 col-md-3 item">
+                <h3>About</h3>
+                <ul>
+                  <li>
+                    <Link to="/">Company</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Team</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Careers</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-md-6 item text">
+                <h3>FreshFeel.com</h3>
+                <p>
+                  Founded in 2022, FreshFeel.com is the world's largest fragrance digital warehouse company. We stock over 10,000 brand name authentic fragrances. Our selection contains the newest releases, the most popular celebrity scents, classic favorites and hard to find discontinued perfumes, all available at discount prices.<br/><br/>
+                  Having one of the largest warehouses in the world allows us to buy in very large quantities. Our state of the art fulfillment center automates most of the fulfillment process so we can pass the savings on to you. Orders ship the same day they are placed with fast, free shipping that usually arrives within two or three days.
+                </p>
+              </div>
+              <div className="col item social">
+                <Link to="/">
+                  <i className="icon ion-social-facebook"></i></Link>
+                
+                <Link to="/">
+                  <i className="icon ion-social-twitter"></i></Link>
+                
+                <Link to="/">
+                  <i className="icon ion-social-snapchat"></i></Link>
+                
+                <Link to="/">
+                  <i className="icon ion-social-instagram"></i></Link>
+                
               </div>
             </div>
-            <div id="copyright-text">
-              &copy; Khandoker Shamimul Haque 2022. All rights reserved.
-            </div>
-            <div id="social-buttons">
-              <img src="https://img.icons8.com/ios-filled/25/999999/facebook--v1.png" alt=""/>
-              <img src="https://img.icons8.com/ios-filled/25/999999/telegram-app.png" alt=""/>
-              <img src="https://img.icons8.com/ios-filled/25/999999/pinterest--v1.png" alt=""/>
-              <img src="https://img.icons8.com/ios-filled/25/999999/instagram--v1.png" alt=""/>
-            </div>
+            <p className="copyright">&copy; Khandoker Shamimul Haque 2022. All rights reserved.</p>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 };

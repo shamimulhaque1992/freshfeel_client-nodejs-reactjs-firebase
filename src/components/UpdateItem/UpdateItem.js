@@ -138,6 +138,7 @@ const UpdateItem = () => {
             Supplyer name: {product.supplyerName}
           </Card.Text>
           <Card.Text className="text">Supplyer Id.: {product._id}</Card.Text>
+          <Card.Text className="text">Product Status: {product.sellstat}</Card.Text>
         </Card.Body>
       </Card>
       <div className="form-container mx-auto mt-5 mb-5">

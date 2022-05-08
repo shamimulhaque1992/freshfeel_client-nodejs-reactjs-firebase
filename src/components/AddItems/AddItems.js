@@ -26,8 +26,6 @@ const AddItems = () => {
       });
   };
 
-  
-
   return (
     <div className="">
       <h1 className="text-center pt-5 text-primary">Add a New Porduct!</h1>
@@ -75,6 +73,11 @@ const AddItems = () => {
             type="text"
             {...register("img", { required: true, maxLength: 1000 })}
           />
+          <select className="mb-4" {...register("sellstat")}>
+            <option value="Sold">Sold</option>
+            <option value="Unsold">Unsold</option>
+            <option value="Out Of Stock">Out Of Stock</option>
+          </select>
           {errors.exampleRequired && <span>This field is required</span>}
           <input className="mb-4" value="Add To Database" type="submit" />
         </form>

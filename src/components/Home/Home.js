@@ -1,23 +1,23 @@
 import React from "react";
-import useMyItems from "../../hooks/useMyItems";
 import useManage from "../../hooks/useManage";
 import Carousels from "../Carousels/Carousels";
 import Manage from "../Manage/Manage";
-import MyItems from "../MyItems/MyItems";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import Relevence from "../Relevence/Relevence";
+import Reliance from "../Reliance/Reliance";
 
 const Home = () => {
   const [manages] = useManage();
-  const [myitems] = useMyItems();
   console.log(manages);
 
   return (
-    <div>
-      <div className="">
-        <Carousels></Carousels>
-        <h1 className="text-center p-5 text-primary">My Featured Services</h1>
+    <div className="container mt-5">
+        <div className="mb-5 mt-5">
+          <Carousels></Carousels>
+        </div>
+        <h1 className="text-center p-5 text-primary">Our Products</h1>
         <div className="services-container">
           {manages.slice(0, 6).map((manage) => (
             <Manage key={manage._id} manage={manage} />
@@ -28,7 +28,14 @@ const Home = () => {
             <Button>Manage Stock</Button>
           </Link>
         </div>
-      </div>
+        <hr />
+        <div className="mt-5 mb-5">
+          <Relevence></Relevence>
+        </div>
+        <hr />
+        <div className="mt-5 mb-5">
+          <Reliance></Reliance>
+        </div>
     </div>
   );
 };

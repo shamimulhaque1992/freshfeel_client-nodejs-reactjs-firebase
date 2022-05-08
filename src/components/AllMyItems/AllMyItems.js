@@ -11,7 +11,7 @@ const AllMyItems = () => {
         <span>All Items added by</span> <br />
         <small className='userName'>{user?.email ? user?.email : user?.displayName}</small>
       </h1>
-      <div className="">
+      <div>
         <MyItems />
       </div>
     </div>

@@ -13,15 +13,15 @@ const Manage = ({ manage }) => {
   };
   return (
     <div>
-      <Card className="mx-auto m-5 card" style={{ width: "18rem" }}>
+      <Card className="border border-1 mx-auto m-5 card" style={{ width: "18rem" }}>
         <Card.Img
-          className="border rounded mx-auto mt-2 p-1 card-img"
+          className="rounded mx-auto mt-2 card-img"
           variant="top"
           src={img}
         />
         <Card.Body>
           <Card.Title className="title">{title}</Card.Title>
-          <Card.Text className="text">{description}</Card.Text>
+          <Card.Text className="text" title={description}>{description.slice(0,150)}</Card.Text>
           <Card.Text className="text">Price: {price}</Card.Text>
           <Card.Text className="text">quantity: {quantity}</Card.Text>
           <Card.Text className="text">Supplyer name: {supplyerName}</Card.Text>

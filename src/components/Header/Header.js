@@ -42,7 +42,7 @@ const Header = () => {
                 <Nav.Link>Blog</Nav.Link>
               </LinkContainer>
               <LinkContainer  to="/about">
-                <Nav.Link>About Me</Nav.Link>
+                <Nav.Link>About Us</Nav.Link>
               </LinkContainer>
 
               {user ? (

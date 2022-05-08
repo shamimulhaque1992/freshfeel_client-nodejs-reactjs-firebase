@@ -1,0 +1,29 @@
+.content-container {
+  display: flex;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+}
+.logo {
+  font-size: 60px;
+  color: #58595b;
+  margin-bottom: 10px;
+}
+.gray{
+  color: rgb(88 90 92);
+}
+/* media queries */
+@media only screen and (max-width: 576px) {
+  .content-container {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+  .content-container {
+    flex-direction: column;
+  }
+}
+

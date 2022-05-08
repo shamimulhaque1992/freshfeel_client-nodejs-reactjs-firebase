@@ -16,19 +16,18 @@ const MyItems = ({ myitem }) => {
     const getAddItems = async () => {
       const email = user.email;
       const url = `http://localhost:5000/addedproduct?email=${email}`;
-      try{
+      try {
         const { data } = await axios.get(url, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      setUserItem(data);
-      }
-      catch(error){
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        setUserItem(data);
+      } catch (error) {
         console.log(error.message);
-        if(error.response.status === 401 || error.response.status === 403){
-          signOut(auth)
-          navigate('/login');
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
         }
       }
     };
@@ -54,11 +53,16 @@ const MyItems = ({ myitem }) => {
   };
   return (
     <div className="table-container">
-      
-      <Table striped bordered hover className="text-center mb-5 mx-auto" style={{width: '90%'}}>
+      <Table
+        striped
+        bordered
+        hover
+        className="text-center mb-5 mx-auto"
+        style={{ width: "90%" }}
+      >
         <thead>
           <tr>
-            <th className="hide-column">Id</th>
+            <th className="hide-column hide-md-column">Id</th>
             <th>Name</th>
             <th className="hide-column">Supplyer Name</th>
             <th className="hide-column">Image</th>
@@ -70,7 +74,7 @@ const MyItems = ({ myitem }) => {
         <tbody>
           {userItems.map((useritem) => (
             <tr key={useritem._id}>
-              <td className="hide-column">{useritem._id}</td>
+              <td className="hide-column hide-md-column">{useritem._id}</td>
               <td>{useritem.title}</td>
               <td className="hide-column">{useritem.supplyerName}</td>
               <td className="hide-column">
@@ -78,13 +82,22 @@ const MyItems = ({ myitem }) => {
               </td>
               <td className="hide-column">৳ {useritem.price} BDT</td>
               <td>{useritem.quantity}</td>
-              <td>
+              <td className="d-flex align-items-center justify-content-around flex-column flex-sm-column flex-md-row flex-lg-row flex-xl-row flex-xxl-row">
                 <Button
                   className="d-flex align-items-center mx-auto"
                   onClick={() => handleDeleteProduct(useritem._id)}
                 >
                   {" "}
                   <span>Delete</span> <i className="ms-1 fa-solid fa-trash"></i>
+                </Button>
+
+                <Button
+                  className="d-flex align-items-center mx-auto"
+                  onClick={() => handleDeleteProduct(useritem._id)}
+                >
+                  {" "}
+                  <span>Update</span>
+                  <i class="ms-1 fa-solid fa-highlighter"></i>
                 </Button>
               </td>
             </tr>

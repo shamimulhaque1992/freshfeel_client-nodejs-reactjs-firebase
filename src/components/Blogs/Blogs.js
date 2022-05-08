@@ -11,83 +11,79 @@ const Blogs = () => {
       >
         <Accordion.Item eventKey="0">
           <Accordion.Header>
-            Difference Between Authentication and Authorization.
+            Difference Between Javascript and Node.js
           </Accordion.Header>
           <Accordion.Body>
-            In simple words the main difference between authorization and
-            authentication is the permision to do some action. <br />
-            Mainly when we say authentication we think about verify a particular
-            person whether it's he/she or not. <br />
-            On the other hand, when we talk about authorization we think about
-            giving some access to the particular user who have been
-            authenticated. <br />
-            By definition Authentication is the process or action of proving or
-            showing something to be true, genuine, or valid. <br />
-            And Authorization is the process of giving someone the ability to
-            access a resource.
+            At the very root concept javascript is a programming language on the other hand node.js is a runtime environment.<br />
+            We can't run JavaScript outside the browser. But with the help of node.js we can run javascript outside the browser <br />
+            JavaScript basically used in clint side for the interection purposes, on the other hand node js is used in backend for managing the database and server side.<br />
+            Javascript can run in any browser engine as like JS core in safari and Spidermonkey in Firefox. <br />
+            V8 is the Javascript engine inside of node.js that parses and runs Javascript. 
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="1">
           <Accordion.Header>
-            Why we use firebase database and what are the alternatives?
+            Why should we use node.js and when should we use mongodb?
           </Accordion.Header>
           <Accordion.Body>
-            Firebase is known as a toolset to “build, improve, and grow our
-            app”, and the tools it gives us cover a large portion of the
-            services that developers would normally have to build themselves,
-            but don’t really want to build, because they’d rather be focusing on
-            the app experience itself. Firebase includes things like analytics,
-            authentication, databases, configuration, file storage, push
-            messaging, and the list goes on. The services are hosted in the
-            cloud, and scale with little to no effort on the part of the
-            developer. <br></br>
-            <strong>Alternatives:</strong> Oracle Database, DataStax Enterprise,
-            Redis Enterprise Cloud, Cloudera Enterprise Data Hub, Db2.
-            MarkLogic, Couchbase Server, Neo4j, etc.
+            <strong>Why should we use node.js?</strong>
+            Node.js allows reducing the entire server-side application startup from 40 minutes to just 1 minute <br></br>It is a JavaScript runtime built on Chrome’s V8 JS engine. It uses an event-driven, asynchronous non-blocking input/output model and operates on a single thread event loop.
+            <br /><br />As it has event loop API and WebSockets it is possible to build real-time web applications like chat, video conference room or collaboration tools helping coworkers to work on the same document at the same time <br /><br />
+            <strong>when should we use mongodb?</strong> It is quite impossible to declare a database suitable for evry operation. It depends on use case. Based on some use case we can identify some ocetion when we cna use mongodb as database.
+            <ul>
+              <li>Document oriented</li>
+              <li>High performance</li>
+              <li>High availability — Replication</li>
+              <li>High scalability – Sharding</li>
+              <li>Dynamic — No rigid schema.</li>
+              <li>Flexible – field addition/deletion have less or no impact on the application</li>
+              <li>Heterogeneous Data</li>
+              <li>No Joins</li>
+              <li>Distributed</li>
+              <li>Data Representation in JSON or BSON</li>
+              <li>Geospatial support</li>
+              <li>Easy Integration with BigData Hadoop</li>
+              <li>Document-based query language that’s nearly as powerful as SQL</li>
+              <li>Cloud distributions such as AWS, Microsoft, RedHat,dotCloud and SoftLayer etc:-. In fact, MongoDB is built for the cloud. Its native scale-out architecture, enabled by ‘sharding,’ aligns well with the horizontal scaling and agility afforded by cloud computing.</li>
+            </ul>
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="2">
           <Accordion.Header>
-            Other than authentication, what else can we do using firebase
-            database?{" "}
+            Difference between SQL and NoSQL database?{" "}
           </Accordion.Header>
           <Accordion.Body>
-            <strong>Firebase Realtime Database:</strong> The Firebase Realtime
-            Database is a cloud-hosted database. Usually Data is stored as JSON
-            and synchronized in realtime to every connected client. When us
-            build cross-platform apps with our Apple platforms, Android, and
-            JavaScript SDKs, all of our clients share one Realtime Database
-            instance and automatically receive updates with the newest data.
+            <strong>SQL database:</strong> 
+            <ul>
+              <li>In this type of database we use sql queires and syntax to work with the data in database.</li>
+              <li>This database is in tabular format.</li>
+              <li>They are scalable vertically</li>
+              <li><small>Examples</small> are Sqlite, MySql, Oracle, Postgres and MS-SQL</li>
+            </ul>
             <br></br>
             <br></br>
-            <strong>Cloud Firestore:</strong>
-            Firestore is a flexible, scalable NoSQL cloud database to store and
-            sync data. It keeps our data in sync across client apps through
-            realtime listeners and offers offline support so we can build
-            responsive apps that work regardless of network latency or Internet
-            connectivity. Cloud Firestore is a flexible, scalable database for
-            mobile, web, and server development from Firebase and Google Cloud.
-            Like Firebase Realtime Database, it keeps our data in sync across
-            client apps through realtime listeners and offers offline support
-            for mobile and web so us can build responsive apps that work
-            regardless of network latency or Internet connectivity. Cloud
-            Firestore also offers seamless integration with other Firebase and
-            Google Cloud products, including Cloud Functions. <br></br>
-            <br></br>
-            <strong>Hosting:</strong>
-            Firebase Hosting provides hosting for static web sites, such as the
-            ones you can generate using static site generators or even sites
-            built with server-side CMS platforms, from which you generate a
-            static copy of the website. You can host anything as long as it’s
-            not dynamic. A WordPress blog for example is almost always a good
-            candidate to be a static site, if you use Disqus or Facebook
-            comments. Firebase Hosting delivers files through the Fastly CDN,
-            using HTTPS and provides an automatic SSL certificate, with custom
-            domain support. Its free tier is generous, with cheap plans if you
-            outgrow it, and is very developer-friendly: Firebase provides a CLI
-            interface tool, an easy deployment process, and one-click rollbacks
+            <strong>NoSQL database:</strong>
+            <ul>
+              <li>NoSQL is non relational database management system. That means there is no relation between the fields in database.</li>
+              <li>To operate with the data we have different type of technology.</li>
+              <li>NoSQL databases are document based with key-value pairs and graph databases.</li>
+              <li><small>Examples</small> are Cassandra, MongoDB, BigTable, Redis, RavenDb, Hbase, Neo4j and CouchDb</li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="3">
+          <Accordion.Header>
+            What is the purposes of jwt and how does it work?{" "}
+          </Accordion.Header>
+          <Accordion.Body>
+            <strong>Purposes of JWT:</strong> 
+            JSON Web Tokens (JWT) are tokens generated by the server upon user authentication on a web application, and then sent to the client.<br/>These tokens are then sent on every HTTP request, which allows the server to authenticate the user. <br/> To ensure integrity, information contained in the token is signed by a private key, owned by the server. When the server gets the token back from the client, it just has to compare the signature sent by the client with the one it will generate with its private key. If the signatures are identical, the token is then valid.<br/>
+
+            <strong>How does it works?</strong><br/>
+            A “Header” section, containing the algorithm used for the signature, as well as the type of token (“JWT” in our case). The whole thing is encoded in Base64.<br/> A “Payload” section, containing the token data, like the user name, date of token generation or expiry date. All of that is written in JSON and also encoded in Base64<br/>A “Signature” section, that is the result of Header and Payload, concatenated and then encrypted with the private key.
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
