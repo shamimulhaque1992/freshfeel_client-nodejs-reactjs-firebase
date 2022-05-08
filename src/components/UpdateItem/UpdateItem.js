@@ -8,13 +8,13 @@ const UpdateItem = () => {
   const [product, setProduct] = useState({});
   const [count, setCount] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/updateitem/${updateId}`;
+    const url = `https://obscure-harbor-31706.herokuapp.com/updateitem/${updateId}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => setProduct(data));
   }, [updateId]);
   useEffect(() => {
-    const url = `http://localhost:5000/updateitem/${updateId}`;
+    const url = `https://obscure-harbor-31706.herokuapp.com/updateitem/${updateId}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => setCount(data.quantity));
@@ -31,7 +31,7 @@ const UpdateItem = () => {
     } else {
       const updatedInfo = { updatedQuentity };
       //send updated data in backend
-      const url = `http://localhost:5000/updateitem/${updateId}`;
+      const url = `https://obscure-harbor-31706.herokuapp.com/updateitem/${updateId}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -66,7 +66,7 @@ const UpdateItem = () => {
     } else {
       const updatedInfo = { updatedQuentity };
       //send updated data in backend
-      const url = `http://localhost:5000/updateitem/${updateId}`;
+      const url = `https://obscure-harbor-31706.herokuapp.com/updateitem/${updateId}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -102,7 +102,7 @@ const UpdateItem = () => {
     } else {
       const updatedInfo = { updatedQuentity };
       //send updated data in backend
-      const url = `http://localhost:5000/updateitem/${updateId}`;
+      const url = `https://obscure-harbor-31706.herokuapp.com/updateitem/${updateId}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -123,7 +123,7 @@ const UpdateItem = () => {
   return (
     <div className="">
       <h1 className="text-center pt-4 mt-4 text-primary">{product.title}</h1>
-      <Card className="mx-auto m-5 card" style={{ width: "18rem" }}>
+      <Card className="mx-auto w-50 m-5 card" style={{ width: "18rem" }}>
         <Card.Img
           className="border rounded mx-auto mt-2 p-1 card-img"
           variant="top"

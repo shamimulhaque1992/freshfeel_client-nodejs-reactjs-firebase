@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import "./AddItems.css";
 
@@ -14,7 +15,7 @@ const AddItems = () => {
 
   const onSubmit = (data, e) => {
     e.target.reset();
-    const url = `http://localhost:5000/product`;
+    const url = `https://obscure-harbor-31706.herokuapp.com/product`;
     fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -22,6 +23,12 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((info) => {
+        if(info.insertedId){
+          toast('Product is added successfully!')
+        }
+        else {
+          toast("Something went wrong!")
+        }
         console.log(info);
       });
   };

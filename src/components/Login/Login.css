@@ -1,4 +1,5 @@
 .form-container {
+  background-image: linear-gradient(rgb(177, 251, 199), rgb(255, 255, 255));
   width: 600px;
   margin: 0 auto;
   border: 1px solid #95a0a7;
@@ -6,6 +7,34 @@
   border-radius: 8px;
   display: flex;
   justify-content: center;
+}
+
+.login {
+  background-color: rgb(181, 248, 187) !important;
+  color: rgb(50, 50, 50) !important;
+  font-weight: bold !important;
+}
+.login:hover {
+  background-color: rgb(142, 212, 182) !important;
+  color: rgb(49, 78, 222) !important;
+  font-weight: bold !important;
+  transition: 1s;
+}
+.googlelogo {
+  font-size: 25px !important;
+  color: #fff !important;
+}
+.facebooklogo {
+  font-size: 25px !important;
+  color: rgb(0, 119, 255) !important;
+}
+.login:hover .googlelogo {
+  transform: rotate(360deg);
+  transition: 1s;
+}
+.login:hover .facebooklogo {
+  transform: rotate(360deg);
+  transition: 1s;
 }
 
 .form-link {
@@ -28,7 +57,6 @@
   .form-container {
     width: 90% !important;
   }
-
 }
 @media only screen and (min-width: 576px) and (max-width: 992px) {
   .form-container {

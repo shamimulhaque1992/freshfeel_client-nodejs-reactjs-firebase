@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-
+import './Register.css'
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -135,10 +135,16 @@ const Register = () => {
               🗝
             </p>
           </div>
+          <Form.Text
+              className="text-muted"
+              title="An uppercase letter a lowercase letter a special character and a Number and more then 6 character"
+            >
+              Password must contain minimum...
+            </Form.Text>
           {errors?.confirmPassword && <p>{errors.confirmPassword}</p>}
         </Form.Group>
         <p style={{ color: "red" }}>{error}</p>
-        <Button className="mb-3 d-flex justify-content-center align-items-center" variant="primary" type="submit"><i className="fa-solid fa-address-card"></i>
+        <Button className="mb-3 d-flex justify-content-center align-items-center login border-0" variant="primary" type="submit"><i className="fa-solid fa-address-card"></i>
           <span className="mx-1">Register</span>
         </Button>
         <p>

@@ -11,7 +11,7 @@ const Relevence = () => {
       <section className="container content-container">
         <section className="content">
           <div className="logo">
-            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <i className="fa-solid fa-hand-holding-dollar"></i>
           </div>
           <div className="contentheader">
             <h4>FAIR PRICES</h4>
@@ -25,7 +25,7 @@ const Relevence = () => {
         </section>
         <section className="content">
           <div className="logo">
-            <i class="fa-solid fa-flask"></i>
+            <i className="fa-solid fa-flask"></i>
           </div>
           <div className="contentheader">
             <h4>MADE WITH INTEGRITY</h4>
@@ -41,7 +41,7 @@ const Relevence = () => {
 
         <section className="content">
           <div className="logo">
-            <i class="fa-solid fa-award"></i>
+            <i className="fa-solid fa-award"></i>
           </div>
           <div className="contentheader">
             <h4>HAPPINESS GUARANTEED</h4>

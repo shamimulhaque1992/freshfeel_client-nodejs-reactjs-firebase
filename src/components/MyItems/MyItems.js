@@ -14,8 +14,8 @@ const MyItems = ({ myitem }) => {
   const [userItems, setUserItem] = useManage([]);
   useEffect(() => {
     const getAddItems = async () => {
-      const email = user.email;
-      const url = `http://localhost:5000/addedproduct?email=${email}`;
+      const email = user?.email;
+      const url = `https://obscure-harbor-31706.herokuapp.com/addedproduct?email=${email}`;
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -38,7 +38,7 @@ const MyItems = ({ myitem }) => {
   const handleDeleteProduct = (id) => {
     const conferm = window.confirm("Are you sure you want to delete?");
     if (conferm) {
-      const url = `http://localhost:5000/addedproduct/${id}`;
+      const url = `https://obscure-harbor-31706.herokuapp.com/addedproduct/${id}`;
       fetch(url, {
         method: "DELETE",
       })

@@ -22,11 +22,11 @@ const Header = () => {
                 <div>
                   <img
                     className="lgo"
-                    src="https://img.freepik.com/free-vector/luxury-design-perfume-logo_23-2148464168.jpg"
+                    src="https://www.freshfeel.org/assets/image/logo/wos-logo-header-n.png"
                     alt=""
                   />
                 </div>
-                <div className="">Click-Life</div>
+                <div className="">FreshFeel.com</div>
               </div>
             </Navbar.Brand>
           </LinkContainer>
@@ -61,7 +61,7 @@ const Header = () => {
                       👨‍💼{user?.email ? user?.email : user?.displayName}
                     </p>
                     <button
-                      className="rounded btn btn-primary d-flex justify-content-center align-items-center"
+                      className="login border-0 rounded btn btn-primary d-flex justify-content-center align-items-center"
                       onClick={handleSignOut}
                     >
                       <i

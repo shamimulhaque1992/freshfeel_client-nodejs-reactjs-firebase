@@ -52,7 +52,7 @@ const Blogs = () => {
 
         <Accordion.Item eventKey="2">
           <Accordion.Header>
-            Difference between SQL and NoSQL database?{" "}
+            Difference between SQL and NoSQL database{" "}
           </Accordion.Header>
           <Accordion.Body>
             <strong>SQL database:</strong> 

@@ -45,9 +45,9 @@ const Carousels = () => {
           />
 
           <Carousel.Caption className="carosel-text mb-5 rounded">
-            <h3 className="font font-title">Congratulations! on Your Wedding.</h3>
-            <p className="font font-description">
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            <h3 className="font font-title">Creed</h3>
+            <p className="font font-description"title="One of the oldest perfumeries in the world, the brand was established in the 1700s in Britain. They used to supply opulent perfumes to the royal family, with Queen Victoria as a loyal customer. In the family for many generations, today the owner is Oliver Creed. He still uses the same methods of filtering, mixing, and weighing the ingredients, just like his ancestors used to centuries ago. Hey, if it works for them, who are we to judge?">
+              One of the oldest perfumeries in the world, the brand was established in the 1700s in Britain.
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -61,9 +61,9 @@ const Carousels = () => {
           />
 
           <Carousel.Caption className="carosel-text mb-5 rounded">
-            <h3 className="font font-title">Wedding Ceremony.</h3>
-            <p className="font font-description">
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            <h3 className="font font-title">Hermes</h3>
+            <p className="font font-description"title="Another famous fashion house that is well known for their sophisticated fashions and accessories, they have quite an extensive perfume line. With enduring scents, their perfumes offer you an aura of elegance and richness like no other brand.Without being overwhelming, their offerings are on the strong side. They do not have many subdued notes in their fragrance collection, so be prepared to be mesmerized by this brand that is the epitome of glamour and sophistication.">
+              Another famous fashion house that is well known for their sophisticated fashions and accessories, they have quite an extensive perfume line.
             </p>
           </Carousel.Caption>
         </Carousel.Item>

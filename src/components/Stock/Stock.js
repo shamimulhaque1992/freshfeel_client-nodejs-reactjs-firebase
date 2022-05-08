@@ -11,7 +11,7 @@ const Stock = () => {
     const conferm = window.confirm('Are you sure you want to delete?')
     if(conferm){
       console.log('deleting user with id', id);
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://obscure-harbor-31706.herokuapp.com/product/${id}`;
       fetch(url,{
         method: 'DELETE',
       })
