@@ -22,7 +22,7 @@ const Header = () => {
                 <div>
                   <img
                     className="lgo"
-                    src="https://raw.githubusercontent.com/taviskaron/2-3-4-column-footers/main/img/logo.png"
+                    src="https://img.freepik.com/free-vector/luxury-design-perfume-logo_23-2148464168.jpg"
                     alt=""
                   />
                 </div>
